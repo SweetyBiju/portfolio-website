@@ -1,11 +1,11 @@
-import { SiGithub, SiLinkedin, SiLeetcode, SiGeeksforgeeks } from 'react-icons/si'
+import { SiGithub, SiLinkedin, SiLeetcode, SiHackerrank } from 'react-icons/si'
 import { INFO } from '../../data/info'
 
 const SOCIAL = [
   { icon: SiGithub,        label: 'GitHub',        href: INFO.github   },
   { icon: SiLinkedin,      label: 'LinkedIn',       href: INFO.linkedin },
   { icon: SiLeetcode,      label: 'LeetCode',       href: INFO.leetcode },
-  { icon: SiGeeksforgeeks, label: 'GeeksForGeeks',  href: INFO.gfg      },
+  { icon: SiHackerrank, label: 'HackerRank',  href: INFO.hackerrank      },
 ]
 
 const QUICK_LINKS = [

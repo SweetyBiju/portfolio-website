@@ -47,7 +47,7 @@ export const PROJECTS = [
     description: 'Engineered a comprehensive simulator to benchmark core OS disk scheduling algorithms including FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK. I built a custom PHP backend engine to process complex track-head movement logic, calculate execution sequences, and compute performance metrics like Total and Average Seek Time. The frontend consumes this data asynchronously, leveraging Chart.js to render dynamic, real-time line graphs of the disk head path within a responsive Tailwind CSS interface. This project bridges the gap between abstract operating system concepts and tangible visual data.',
     tech: ['PHP','HTML', 'JavaScript', 'Chart.js', 'Tailwind CSS'],
     category: 'Full Stack',
-    github: 'https://github.com/SweetyBiju/AdvancedDiskSchedulingSimulator', // Updated with your username
+    github: 'https://github.com/SurichaSinha/AdvancedDiskSchedulingSimulator', // Updated with your username
     live: '',
     featured: false,
     year: '2025',
