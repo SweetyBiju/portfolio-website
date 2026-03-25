@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── CSS Custom Properties ──────────────────────────────────── */
+@layer base {
+  :root {
+    --forest:       #2D4030;
+    --forest-light: #3A5240;
+    --forest-dark:  #1E2D22;
+    --amber:        #FFB800;
+    --amber-light:  #FFC933;
+    --amber-dark:   #E6A600;
+    --amber-muted:  #FFF3CC;
+    --warm-white:   #F9F9F5;
+    --warm-cream:   #F4F0E8;
+    --warm-gray:    #E5E5E0;
+    --charcoal:     #1A1A1A;
+    --charcoal-muted: #6B6B6B;
+  }
+
+  /* ── Reset & Base ───────────────────────────────────────── */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── Text Selection ─────────────────────────────────────── */
+  ::selection {
+    background: var(--amber);
+    color: var(--charcoal);
+  }
+
+  /* ── Scrollbar ──────────────────────────────────────────── */
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--warm-white); }
+  ::-webkit-scrollbar-thumb { background: var(--forest); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--forest-light); }
+}
+
+/* ── Reusable Component Classes ─────────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn-amber {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           font-sans font-semibold text-sm text-charcoal bg-amber
+           transition-all duration-300
+           hover:bg-amber-light hover:shadow-amber hover:-translate-y-0.5
+           active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           font-sans font-medium text-sm
+           border-2 border-forest text-forest
+           transition-all duration-300
+           hover:bg-forest hover:text-warm-white hover:-translate-y-0.5
+           active:scale-95;
+  }
+
+  .btn-text {
+    @apply inline-flex items-center gap-2 font-sans font-medium text-sm
+           text-charcoal-muted underline underline-offset-4
+           transition-colors duration-200
+           hover:text-charcoal;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-warm-white border border-warm-gray rounded-2xl
+           transition-all duration-300
+           hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  /* Section label (eyebrow text above headings) */
+  .section-label {
+    @apply inline-flex items-center gap-2
+           font-mono text-xs font-medium tracking-widest uppercase
+           text-charcoal-muted;
+  }
+  .section-label::before {
+    content: '';
+    @apply block w-5 h-px bg-amber;
+  }
+
+  /* Tag / pill */
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full
+           text-xs font-sans font-medium
+           bg-forest text-warm-white;
+  }
+
+  .tag-amber {
+    @apply inline-flex items-center px-3 py-1 rounded-full
+           text-xs font-sans font-medium
+           bg-amber-muted text-charcoal;
+  }
+
+  /* Skill pill inside skill cards */
+  .skill-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+           text-xs font-sans font-medium
+           bg-warm-cream text-charcoal border border-warm-gray
+           transition-all duration-200
+           hover:border-forest hover:bg-forest hover:text-warm-white
+           cursor-default;
+  }
+}
+
+/* ── Ticker tape ─────────────────────────────────────────────── */
+.ticker-wrapper { overflow: hidden; white-space: nowrap; display: flex; }
+.ticker-content {
+  display: inline-flex;
+  animation: ticker 30s linear infinite;
+  will-change: transform;
+}
+.ticker-content:hover { animation-play-state: paused; }
+
+/* ── Noise texture overlay ──────────────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
