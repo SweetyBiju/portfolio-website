@@ -129,14 +129,13 @@ export default function Hero() {
 
               {/* Secondary Download Resume Pill */}
               <a 
-                href={INFO.resume} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-fit flex items-center gap-2 px-6 py-2.5 rounded-full bg-forest text-warm-white font-sans font-semibold text-sm hover:bg-forest/90 hover:shadow-lg hover:-translate-y-0.5 transition-all group mt-2"
-              >
-                Download Resume 
-                <span className="inline-block group-hover:translate-y-0.5 transition-transform">↓</span>
-              </a>
+  href={INFO.resume} 
+  download="My_Resume.pdf" // This forces the download
+  className="w-fit flex items-center gap-2 px-6 py-2.5 rounded-full bg-forest text-warm-white font-sans font-semibold text-sm hover:bg-forest/90 hover:shadow-lg hover:-translate-y-0.5 transition-all group mt-2"
+>
+  Download Resume 
+  <span className="inline-block group-hover:translate-y-0.5 transition-transform">↓</span>
+</a>
 
             </motion.div>
           </motion.div>
